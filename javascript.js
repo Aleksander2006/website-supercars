@@ -1,4 +1,113 @@
-// Get the button
+
+//--------------------------------supercars--------------------------------------------------------
+
+fetch('supercars.json')
+  .then(response => response.json())
+  .then(data => {
+    let carContainers = {
+      porsche: document.getElementById('porsche'),
+      lamborghini: document.getElementById('lamborghini'),
+      koenigsegg: document.getElementById('koenigsegg')
+    };
+
+    //loop through each car type: porsche, lamborghini, koenigsegg)
+    let carTypes = Object.keys(data.cars);
+
+    carTypes.forEach(carType => {
+      //map through the car array in the json and create html for each car
+      data.cars[carType].forEach(car => {
+        let carElement = document.createElement('div');
+        carElement.setAttribute('data-name', car.name);
+        carElement.innerHTML = `
+
+        <div class="box" data-name="${car.name}">
+    
+          <img class="porsche-gt3-rs" src="${car.imgSrc}" alt="porsche"> 
+          
+          <h3 class="tekst-gt3rs">${car.title}</h3>
+
+          <p class="specs">
+          
+          <strong>Bouwjaar:</strong> ${car.year}<br>
+          <strong>Prijs:</strong> ${car.price}<br>
+          <strong>Motor:</strong> ${car.engine}<br>
+          <strong>Power:</strong> ${car.power}<br>
+          <strong>Torque:</strong> ${car.torque}<br>
+          <strong>0-100:</strong> ${car.acceleration}<br>
+          <strong>Top Speed:</strong> ${car.topSpeed}
+
+          </p>
+
+          <p class="gt3rs"> ${car.description} </p>
+
+          <div class="read-more">LEES MEER</div>
+
+        <div>
+        `;
+        carContainers[carType].appendChild(carElement);
+        setupEventListener(carElement);
+      });
+    });
+  })
+.catch(error => {
+    console.error('Error fetching data:', error);
+});
+
+function setupEventListener(boxObject) {
+  let leesMeerKnop = boxObject.querySelector('.read-more');
+  let extraTekst = boxObject.querySelector('.gt3rs');
+  let box = boxObject.querySelector('.box');
+
+  extraTekst.style.display = "none";
+
+  leesMeerKnop.addEventListener("click", function() {
+    if (extraTekst.style.display === "none") {
+      extraTekst.style.display = "block";
+      box.style.height = "650px";
+      leesMeerKnop.innerHTML = "LEES MINDER";
+    } else {
+      extraTekst.style.display = "none";
+      box.style.height = "470px";
+      leesMeerKnop.innerHTML = "LEES MEER";
+    }
+  });
+}
+
+//--------------------------circuits drie boxes----------------------------
+
+fetch('circuits.json')
+.then(response => response.json())
+.then(data => {
+
+  let circuitContainer = document.getElementById('container1');
+
+// Map through the car array in the JSON and create HTML for each circuit
+    data.circuits.map (circuit => {
+    let circuitElement = document.createElement('div');
+    circuitElement.innerHTML = `
+
+    <div class="box500">
+    
+      <img class="circuitfoto" src="${circuit.imgSrc}" alt="${circuit.alt}">
+
+      <h6 class="circuitnaam">${circuit.titel}</h6>
+
+      <p class="tekstcircuitss">${circuit.tekst}</p>
+
+      <a ${circuit.link}>
+      <button class="leesmeerknop">LEES MEER</button> 
+      </a>
+
+    </div> 
+    `;
+
+    circuitContainer.appendChild(circuitElement);
+    
+    });
+})
+
+//-----------------------------BOVEN KNOP----------------------------------
+
 const mybutton = document.querySelector(".myBtn");
 
 // als ik 20px naar beneden ga, dan komt de button tevoorschijn
@@ -23,17 +132,17 @@ function topFunction() {
 const searchInput = document.querySelector('.search'); 
 
 searchInput.addEventListener('keyup', function(event) {
-  const value = event.target.value.toLowerCase(); // Dit is wat de gebruiker heeft getypt
-  const box = document.querySelectorAll('.box'); // Dit selecteert alle boxes
-  const titles = document.querySelectorAll('.neontekst'); // Dit selecteert alle titels met classname 'neontekst'
+  const value = event.target.value.toLowerCase(); // dit is wat er wordt ingetypt
+  const box = document.querySelectorAll('.box'); // dit selecteert alle boxes
+  const titles = document.querySelectorAll('.neontekst'); // dit selecteert alle titels met classname 'neontekst'
 
   box.forEach(function(box) {
-    const name = box.getAttribute('data-name').toLowerCase(); // Dit haalt de naam van elke supercar op
+    const name = box.getAttribute('data-name').toLowerCase(); // dit haalt de naam van elke supercar op
 
     if (name.includes(value)) {
-      box.style.display = 'block'; // Als de naam overeenkomt met wat de gebruiker heeft getypt, wordt het blokje weergegeven
+      box.style.display = 'block';
     } else {
-      box.style.display = 'none'; // Als de naam niet overeenkomt, wordt het blokje verborgen
+      box.style.display = 'none'; 
     }
   });
 
@@ -49,131 +158,3 @@ searchInput.addEventListener('keyup', function(event) {
     }
   });
 });
-
-
-//----------------------------LEES MEER KNOPPEN TWEEDE PAGINA-----
-
-
-// Selecteer alle elementen met de classname "box"
-let Boxes = document.querySelectorAll('.box');
-
-// Loop door elk element en voer een actie uit
-Boxes.forEach(box => {
-
-  const leesMeerKnop = box.querySelector('.read-more');
-  const extraTekst = box.querySelector('.gt3rs');
-
-  extraTekst.style.display = "none";
-
-  leesMeerKnop.addEventListener("click", function() {
-     
-      if (extraTekst.style.display === "none") {
-     
-      extraTekst.style.display = "block";
-      box.style.height = "650px";
-      leesMeerKnop.innerHTML = "LEES MINDER";
-    } else {
-    
-      extraTekst.style.display = "none";
-      box.style.height = "450px"; 
-      leesMeerKnop.innerHTML = "LEES MEER";
-    }
-  });
-});
-
-//-----------------------------------------------------------
-
-
-//let cars = [
-//  {
-//    name: "CCGT",
-//    image: "images/gttt.jpg",
-//    alt: "murcielago sv",
-//    year: 2002,
-//    price: "€3,65 mil",
-//    engine: "5.0L V8",
-//    power: "600 hp",
-//    torque: "1100 Nm",
-//    acceleration: "3 seconds",
-//    topSpeed: "395 km/h",
-//    description: "De Koenigsegg CCGT is een raceauto die is ontworpen en gebouwd door Koenigsegg Automotive AB, met de bedoeling om te concurreren in de GT1-klasse van sportwagenraces. De auto is gebaseerd op de Koenigsegg CC-modellen en heeft een 5.0L V8-motor die 600 pk levert."
-//  },
-//  // Voeg hier meer auto-objecten toe...
-//];
-//
-//cars.forEach(car => {
-//  document.querySelector('.box').innerHTML += `
-//    <img class="porsche-gt3-rs" src="${car.image}" alt="${car.alt}">
-//    <h3 class="tekst-gt3rs">${car.name}</h3>
-//    <p class="specs">
-//      <strong>Bouwjaar:</strong> ${car.year} <br>
-//      <strong>Prijs:</strong> ${car.price} <br>
-//      <strong>Engine:</strong> ${car.engine}<br>
-//      <strong>Power:</strong> ${car.power} <br>
-//      <strong>Torque:</strong> ${car.torque} <br>
-//      <strong>0-100 km/h:</strong> ${car.acceleration} <br>
-//      <strong>Top Speed:</strong> ${car.topSpeed} <br>
-//    </p>
-//    <p class="gt3rs">${car.description}</p> 
-//    <div class="read-more">LEES MEER</div>
-//  `;
-//});
-//
-
-function createBox(data) {
-  return `
-    <div class="box" data-name="${data.name}">
-      <img class="porsche-gt3-rs" src="${data.imgSrc}" alt="${data.alt}">
-      <h3 class="tekst-gt3rs">${data.title}</h3>
-      <p class="specs">
-        <strong>Bouwjaar:</strong> ${data.year} <br>
-        <strong>Prijs:</strong> ${data.price} <br>
-        <strong>Engine:</strong> ${data.engine} <br>
-        <strong>Power:</strong> ${data.power} <br>
-        <strong>Torque:</strong> ${data.torque} <br>
-        <strong>0-100 km/h:</strong> ${data.zeroToHundred} seconds <br>
-        <strong>Top Speed:</strong> ${data.topSpeed} km/h <br>
-      </p>
-      <p class="gt3rs">${data.description}</p>
-      <div class="read-more">LEES MEER</div>
-    </div>`;
-}
-
-//var boxData = [
-//  {
-//    name: "gt2 rs",
-//    imgSrc: "images/ad6aef78-porsche-911-gt2-rs-configurator-3-1024x576.jpg",
-//    alt: "gt2 rs",
-//    title: "GT2 RS",
-//    year: 2018,
-//    price: "€353.285",
-//    engine: "3.8L Twin-turbocharged Flat-6",
-//    power: "700 hp",
-//    torque: "553 Nm",
-//    zeroToHundred: "2,8",
-//    topSpeed: "340",
-//    description: "De Porsche 911 GT2 RS is een absolute krachtpatser onder de sportwagens. Met meer dan 700 pk afkomstig van een turbomotor en een indrukwekkende acceleratie van 0 naar 100 km/u in slechts enkele seconden, is dit vlaggenschip van Porsche een icoon in snelheid en prestaties."
-//  },
-//  {
-//    name: "cayman gt4 rs",
-//    imgSrc: "images/porsche gt4------rsss.jpg",
-//    alt: "gt4 rs",
-//    title: "CAYMAN GT4 RS",
-//    year: 2022,
-//    price: "€244.590",
-//    engine: "4-liter Flat 6",
-//    power: "493 hp",
-//    torque: "450 Nm",
-//    zeroToHundred: "3.2",
-//    topSpeed: "315",
-//    description: "De GT4 RS is de nieuwste toevoeging aan de Cayman-familie. Hij is niet goedkoop, maar die extra premiumprijs biedt u een auto met verbluffende prestaties en een gillende atmosferische motor die tot 8400 rpm kan draaien. Het is ook het enige GT4-model dat momenteel beschikbaar is voor de Cayman in 2023."
-//  }
-//];
-//
-//let boxes = boxData.map(createBox).join("");
-//document.getElementById("container").innerHTML = boxes;
-//
-
-const welkom = document.querySelectorAll('.box');
-
-console.log(welkom);

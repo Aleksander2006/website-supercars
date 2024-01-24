@@ -1,26 +1,72 @@
 
-
 /*-------AL HET LETTERTYPE HETZELFDE--*/
 *{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
-/*------ACHTERGROND---------------*/
-body {
+/*------ACHTERGROND-HOME EN OVER SUPERCAR PAGINA--------------*/
+body, .body2 {
   background-image: url(images/background.jpg);
   background-size: cover;
   background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
+
 
 /*------BREEDTE PAGINA----*/
 .container {
   margin-left: auto;
   margin-right: auto;
   width: 1100px;
+  display: flex;
+  justify-content: center;
+  flex-direction:row;
+  flex-wrap: wrap;
+  flex-basis: 0;
 }
 
+/*-------------NAAR BOVEN KNOP-----*/
+.myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.myBtn:hover {
+  background-color: #ffffff;
+}
+
+/*-----------KNOPPEN VAN DE NAVBAR-------------------------------*/
+nav a {
+  color: rgb(248, 2, 2);
+  padding: 7px 10px 7px 10px;
+  font-family: league system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  border: 3px solid red;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 15px 30px 20px 0px;
+  border-color: red;
+  background-color: black;
+  float: right;
+}
+
+nav a:hover {
+  background-color: white;
+  transition-duration: 1s;
+}
 
 /*-------HOMEPAGINA-SLOGAN TEKST--------*/
 .slogan {
@@ -40,20 +86,20 @@ body {
   margin-left: 50px;
 }
 
-
 /*-------------BOX-HOME-----------*/
 .box-home {
   width: 1100px;
   background-color: rgba(0, 0, 0, 0.795);
   margin-left: 50px;
   margin-right: 60px;
+  margin-bottom: 150px;
   margin-top: 100px;
   border-radius: 10px;
   padding: 20px 20px 20px 20px;
 }
 
 .watissupercar {
-font-size: 20px;
+font-size: 25px;
 font-weight: 500;
 }
 
@@ -63,16 +109,16 @@ font-weight: 500;
   font-weight: 500;
 }
 
-.tekst-homebox {
+/*-----------tekst-homebox en oversupercar pagina---*/
+.tekst-homebox, .oversupercarwittetekst {
   color: white;
 }
 
 /*-----------------KOPJES op de home pagina-------*/
-.home-tekst {
+.home-tekst, .oversupercar {
   color: red;
   font-size: 25px;
 }
-
 
 /*--------------------fotos------------*/
 .engines {
@@ -112,53 +158,24 @@ margin-left: 20px;
   transition-duration: 0.7s;
 }
 
-
-/*--------WEBSITE LOGO----*/
-.website-logo {
-  margin-left: 200px;
-  margin-right: auto;
-  width: 50%;
+/*-----------------LOGO-----*/
+.logo {
+  width: 200px;
+  margin: 10px 0px 0px 20px;
 }
-
 
 /*------------NAVBAR-------*/
 nav {
-  background-color: rgba(0, 0, 0, 0.403);
-  width: 1100px;
-  text-align: center;
+  background-color: rgb(0, 0, 0);
+  height: 75px;
+  width: 100%;
   padding: 5px 0px 5px 0px;
-  border-radius: 5px;
-}
-
-
-
-/*-----------KNOPPEN VAN DE NAVBAR-----*/
-.navbuttons {
-  color: rgb(248, 2, 2);
-  padding: 7px 10px 7px 10px;
-  font-size: 17px;
-  font-style: italic;
-  border-radius: 10px;
-  font-weight: bolder;
-  background-color: black; 
-  box-shadow: 0 0 5px black; 
-  margin: 10px 20px;
-  border: black;
-}
-
-.navbuttons:hover {
-  background-color: white;
-  transition-duration: 0.9s;
+  box-shadow: 0 0 10px black;
 }
 
 /*----------------------------OVER SUPERCAR PAGINA----------------------*/
 
 /*------ACHTERGROND---------------*/
-body {
-  background-image: url(images/background.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-}
 
 .container-w {
   justify-content: center;
@@ -169,36 +186,26 @@ body {
 .box600 {
   width: 870px;
   background-color: rgba(0, 0, 0, 0.795);
-  margin: 10px 200px 200px 420px;
-  margin-left: 240px;
-  margin-right: 200px;
-  margin-top: 10px;
+  margin: 100px 200px 100px 220px;
   border-radius: 10px;
   padding: 20px 20px 20px 20px;
+  box-shadow: 0 0 10px black;
 }
 
 .blackfoto {
   width: 500px;
   height: 300px;
   border-radius: 10px;
+  margin: 20px 0px 0px 15px;
 }
-
-.oversupercar {
-  color: red;
-}
-
-.oversupercarwittetekst {
-  color: white;
-}
-
 
 /*----------------------TWEEDE PAGINA-----------------------------------------*/
 
 .boxtweedepagina {
   background-color: rgba(0, 0, 0, 0.99);
-  margin: 0px 550px 30px 550px;
   border-radius: 10px;
   padding: 0px 20px 10px 20px;
+  margin: 80px 0px 0px 0px;
   width: 800px;
 }
 
@@ -206,7 +213,6 @@ body {
   color:  white;
   font-size: 20px;
 }
-
 
 /*------------fotos welkom box-----*/
 .fotoswelkombox {
@@ -219,11 +225,12 @@ border-radius: 8px;
 /*-----------------SEARCH BAR---------*/
 .search {
   font-size: 18px;
-  margin: 50px 750px 10px 690px; 
+  margin: 40px 690px 10px 690px;
   border-radius: 5px;
   border: rgb(119, 119, 119);
   background-color: black;
   color: red;
+  justify-content: center;
   padding: 5px;
   box-shadow: 0 0 20px black;
   transition-duration: 0.7s;
@@ -239,11 +246,11 @@ border-radius: 8px;
   color: rgb(255, 255, 255);
 }
 
-/*-----------NEON TEKST-----*/
+/*-----------NEON TEKST-op alle pagina's----*/
 .neontekst {
   color:rgb(255, 255, 255);
   font-size: 40px;
-  margin: 100px 650px 100px 650px;
+  margin: 100px 650px 50px 650px;
   background-color: rgb(0, 0, 0);
   border-radius: 10px;
   padding: 20px 20px 20px 20px;
@@ -265,33 +272,33 @@ border-radius: 8px;
 /*----------------------BOXES---------------------------------*/
 
 /*------CONTAINER VAN DE BOXES--------------*/
-.container {
+
+#porsche, #lamborghini, #koenigsegg {
   display: flex;
   justify-content: center;
   flex-direction:row;
   flex-wrap: wrap;
   flex-basis: 0;
-  margin-bottom: 200px;
+  width: 1500px;
+  margin: auto;
 }
 
 /*-------BOX AFMETINGEN---*/
 .box{
   width: 300px;
-  height: 450px;
+  height: 470px;
   background-color: #000000;
   border-radius: 10px;
   margin: 20px 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.401);
-  overflow: hidden;
   transition: 0.7s;
+  overflow: hidden;
 }
-
 
 /*--------MOOIE HOVER EFFECT BOX--*/
 .box:hover {
   box-shadow: 0 0 100px rgb(122, 0, 0);
 }
-
 
 /*--------ALLE FOTOS IN BOXES-----*/
 .porsche-gt3-rs {
@@ -301,20 +308,9 @@ border-radius: 8px;
   margin: 20px 0px 0px 35px;
 }
 
-/*------ALLEEN FOTOBOX 918 SPYDER---*/
-.porsche-918 {
-  width: 230px;
-  height: 130px;
-  border-radius: 10px;
-  margin-top: 20px;
-  margin-left: 35px;
-  background-color: white;  
-}
-
-
 /*-------MODELTEKST AUTO-----*/
 .tekst-gt3rs {
-  color: rgb(255, 4, 4); 
+  color: rgb(255, 4, 4);
    text-align: center;
    font-size: 25px;
    margin-top: 10px;
@@ -347,35 +343,9 @@ border-radius: 8px;
   cursor: pointer;
   text-align:center;
   font-weight: bold;
-  margin-top: 30px;
+  margin: 30px 0px 0px 75px;
+  width: 150px;
 }
-
-/*-------------NAAR BOVEN KNOP-----*/
-.myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: red;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.myBtn:hover {
-  background-color: #ffffff;
-}
-
-
-.box:hover .gt3rs {
-  display:block;
-}
-
 
 /*--------------------------CICUITS DERDE PAGINA----------------------*/
 
@@ -390,16 +360,17 @@ border-radius: 8px;
   font-weight: 500;
 }
 
-.container8 {
-  justify-content: center;
-}
-
 .rodetekst {
   font-size: large;
   color: red;
   font-weight: 1000;
 }
 
+.rodetekst-1 {
+  font-size: 23px;
+  color: red;
+  font-weight: 1000;
+}
 
 /*-----------------CIRCUITS TEKSTJE-is neontekst prc hetzelfde als porsche, lamborghini op tweede pagina----------------*/
 
@@ -420,21 +391,18 @@ border-radius: 8px;
   transition: box-shadow 0.7s;
 }
 
-
 /*---------TEKST IN DE BOXES---*/
 .tekstbox300 {
   color: white;
 }
 
-
 /*------------CONTAINER BOXES---*/
-.container1 {
+#container1 {
   display: flex;
   justify-content: center;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
 }
-
 
 /*-------CIRCUIT FOTOS IN DE DRIE BOXES--------*/
 .circuitfoto {
@@ -444,7 +412,6 @@ border-radius: 8px;
   margin-top: 20px;
   margin-left: 40px;
 }
-
 
 /*----------CIRCUITNAAM-------*/
 .circuitnaam {
@@ -463,15 +430,14 @@ border-radius: 8px;
   text-align: center;
   width: 290px;
   padding: 5px;
+  padding: 10px 10px 10px 10px;
 }
-
 
 /*--------KNOPPEN LEES MEER-----*/
 .leesmeerknop {
   color:rgb(1, 1, 1);
   text-decoration:none;
   margin: 0px 0px 0px 110px;
-  
   border-radius: 5px;
   font-weight: bold;
   padding: 5px 5px 5px 5px;
@@ -480,48 +446,30 @@ border-radius: 8px;
 }
 
 .leesmeerknop:hover {
-  box-shadow: 0 0 50px rgb(251, 250, 250); 
+  box-shadow: 0 0 20px rgba(251, 250, 250, 0.568); 
   transition: box-shadow 0.4s;
 }
 
+/*---------------------------------------------NURBURGRING PAGINA-----------------------------------*/
 
-/*---------- NURBURGRING LEES MEERPAGINA-----*/
+/*---------- NURBURGRING-ACHTERGROND-FOTO-----*/
 .nurburgring-pagina {
   background-image: url(images/nordschleife.jpg);
   background-size: cover;
   background-attachment: fixed;
 }
 
-
-/*--------SPA FRNACHORCHAMPS LEES MEER PAGINA--*/
-.spa-pagina {
-  background-image: url(images/spafranchorchampsachtergrondfoto.jpg);
-  background-size: cover;
-  position: relative;
-  background-attachment: fixed;
-}
-
-/*-------- IMOLA LEES MEER PAGINA--*/
-.imola-pagina {
-  background-image: url(images/imolaaaachtergrondd.jpg);
-  background-size: cover;
-  background-attachment: fixed; 
-}
-
-/*---------------------------------------------NURBURGRING PAGINA-----------------------------------*/
-
 .container9 {
   justify-content:center;
 }
 
 .box350 {
-  background-color: #0000009d;
+  background-color: #000000d2;
   border-radius: 10px;
   margin: 0px 400px 0px 400px;
   padding: 20px 20px 20px 20px;
   font-weight: bold;
   width: 800px;
-  align-items: center;
 }
 
 /*--------de tekst in het grote blok--*/
@@ -531,7 +479,6 @@ border-radius: 8px;
   font-weight: 500;
 }
 
-
 /*-------------nurburgring pagina kopjes----*/
 .ja {
   color: rgb(255, 0, 0);
@@ -539,22 +486,22 @@ border-radius: 8px;
   margin: 5px;
 }
 
-
-.maps-rode-tekst {
+/*-------rodewebsitetekst bij website button spa en nurbuurgring en imola----*/
+.maps-rode-tekst, .spawebsitetekst {
   color: red;
 }
 
-
 .knop-google-maps {
   color: rgb(245, 1, 1);
-  display:block;
   border-radius: 7px;
   padding: 5px 10px 5px 10px;
   font-weight: bold;
   border: white;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.523);
-  text-decoration: black;
+  text-decoration:none;
   background-color: black;
+  margin-bottom: 200px;
+  position: absolute;
 }
 
 .knop-google-maps:hover {
@@ -562,7 +509,7 @@ border-radius: 8px;
   transition-duration: 0.9s;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.529);
   border: white; 
-  text-decoration: rgb(252, 0, 0);
+  
 }
 
 
@@ -571,7 +518,7 @@ border-radius: 8px;
   width: 300px;
   border-radius: 10px;
   margin-bottom: 20px;
-  margin-top: 0px;
+  margin-top: 25px;
   margin-right: 20px;
 }
 
@@ -620,15 +567,23 @@ text-decoration: underline;
   font-weight: bold;
 }
 
-
 /*-------------------------------spa franchorchamps paginaaa-------------*/
+
+/*--------SPA FRANCHORCHAMPS-ACHTERGROND-FOTO--*/
+.spa-pagina {
+  background-image: url(images/spafranchorchampsachtergrondfoto.jpg);
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+}
+
 
 /*----------------grote box pagina spa----*/
 .box200 {
   margin-top: 60px;
-  background-color: #000000a4;
+  background-color: #000000d2;
   border-radius: 10px;
-  margin-left: 430px;
+  margin-left: 440px;
   margin-right: 400px;
   padding: 20px 20px 20px 20px;
   font-weight: bold;
@@ -636,17 +591,11 @@ text-decoration: underline;
   align-items: center;
 }
 
-
-/*-------------SPA WEBSITE TEKST BIJ DE KNOP----*/
-.spawebsitetekst {
-  color: red;
-}
-
 /*-------------FOTO 1--------*/
 .foto-groot {
   width: 350px;
   border-radius: 10px;
-  margin: 50px 20px 70px 0px;
+  margin: 75px 20px 70px 0px;
 }
 
 /*----------tweede foto-----*/
@@ -667,10 +616,17 @@ text-decoration: underline;
 
 /*-------------------------------------------IMOLA PAGINA----------*/
 
+/*-------- IMOLA LEES MEER PAGINA--*/
+.imola-pagina {
+  background-image: url(images/imolaaaachtergrondd.jpg);
+  background-size: cover;
+  background-attachment: fixed; 
+}
+
 .imolatitle {
   color:rgb(255, 255, 255);
   font-size: 40px;
-  margin: 200px 650px 100px 720px;
+  margin: 100px 650px 75px 720px;
   background-color: rgb(0, 0, 0);
   border-radius: 10px;
   width: 160px;
